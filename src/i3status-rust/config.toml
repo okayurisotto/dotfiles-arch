@@ -1,0 +1,45 @@
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+idle_bg = "#000000"
+separator = ""
+
+[icons]
+name = "awesome"
+
+[[block]]
+block = "music"
+buttons = ["prev", "play", "next"]
+format = "{title}"
+hide_when_empty = true
+marquee = false
+max_width = 256
+dynamic_width = true
+[block.theme_overrides]
+info_bg = "#11a8cd"
+
+[[block]]
+block = "cpu"
+
+[[block]]
+block = "memory"
+clickable = false
+format_mem = " {mem_used} /{mem_total}"
+
+[[block]]
+block = "disk_space"
+format = "{icon} {used} + {free} = {total}"
+
+[[block]]
+block = "net"
+device = "wlan0"
+format = " {signal_strength}"
+
+[[block]]
+block = "sound"
+on_click = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
+[[block]]
+block = "time"
+format = "%Y-%m-%d_%a_%H:%M:%S"
+interval = 1

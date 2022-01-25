@@ -1,0 +1,8 @@
+[general]
+
+bar_width = 4
+bar_spacing = 2
+
+[color]
+
+foreground = cyan

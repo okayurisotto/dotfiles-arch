@@ -1,0 +1,251 @@
+# Ctrl  : C-, ^
+# Escape: ESC-, M-, ^[
+# Space : SPC, ' '
+# Tab   : TAB, ^i, ^I
+# Delete: DEL, ^?
+# Up    : UP, ^[[A
+# Down  : DOWN, ^[[B
+# Right : RIGHT, ^[[C
+# Left  : LEFT, ^[[D
+
+# unmap {{{
+
+keymap	C-@	NULL	# MARK
+keymap	C-_	NULL	# GOTO_HOME
+keymap	C-a	NULL	# LINE_BEGIN
+keymap	C-b	NULL	# MOVE_LEFT
+keymap	C-e	NULL	# LINE_END
+keymap	C-f	NULL	# MOVE_RIGHT
+keymap	C-g	NULL	# LINE_INFO
+keymap	C-h	NULL	# HISTORY
+keymap	TAB	NULL	# NEXT_LINK
+keymap	C-j	NULL	# GOTO_LINK
+keymap	C-k	NULL	# COOKIE
+keymap	C-l	NULL	# REDRAW
+keymap	C-m	NULL	# GOTO_LINK
+keymap	C-n	NULL	# MOVE_DOWN
+keymap	C-p	NULL	# MOVE_UP
+keymap	C-q	NULL	# CLOSE_TAB
+keymap	C-r	NULL	# ISEARCH_BACK
+keymap	C-s	NULL	# ISEARCH
+keymap	C-t	NULL	# TAB_LINK
+keymap	C-u	NULL	# PREV_LINK
+keymap	C-v	NULL	# NEXT_PAGE
+keymap	C-w	NULL	# WRAP_TOGGLE
+keymap	C-z	NULL	# SUSPEND
+
+keymap	SPC	NULL	# NEXT_PAGE
+keymap	!	NULL	# SHELL
+keymap	\"	NULL	# REG_MARK
+keymap	#	NULL	# PIPE_SHELL
+keymap	$	NULL	# LINE_END
+keymap	(	NULL	# UNDO
+keymap	)	NULL	# REDO
+keymap	+	NULL	# NEXT_PAGE
+keymap	,	NULL	# LEFT
+keymap	-	NULL	# PREV_PAGE
+keymap	.	NULL	# RIGHT
+keymap	/	NULL	# SEARCH
+keymap	:	NULL	# MARK_URL
+keymap	";"	NULL	# MARK_WORD
+keymap	<	NULL	# SHIFT_LEFT
+keymap	=	NULL	# INFO
+keymap	>	NULL	# SHIFT_RIGHT
+keymap	?	NULL	# SEARCH_BACK
+keymap	@	NULL	# READ_SHELL
+keymap	B	NULL	# BACK
+keymap	D	NULL	# DOWNLOAD_LIST
+keymap	E	NULL	# EDIT
+keymap	F	NULL	# FRAME
+keymap	G	NULL	# END
+keymap	H	NULL	# HELP
+keymap	I	NULL	# VIEW_IMAGE
+keymap	J	NULL	# UP
+keymap	K	NULL	# DOWN
+keymap	L	NULL	# LIST
+keymap	M	NULL	# EXTERN
+keymap	N	NULL	# SEARCH_PREV
+keymap	Q	NULL	# EXIT
+keymap	R	NULL	# RELOAD
+keymap	S	NULL	# SAVE_SCREEN
+keymap	T	NULL	# NEW_TAB
+keymap	U	NULL	# GOTO
+keymap	V	NULL	# LOAD
+keymap	W	NULL	# PREV_WORD
+keymap	Z	NULL	# CENTER_H
+keymap	[	NULL	# LINK_BEGIN
+keymap	]	NULL	# LINK_END
+keymap	\^	NULL	# LINE_BEGIN
+keymap	a	NULL	# SAVE_LINK
+keymap	b	NULL	# PREV_PAGE
+keymap	c	NULL	# PEEK
+keymap	g	NULL	# BEGIN
+keymap	h	NULL	# MOVE_LEFT
+keymap	i	NULL	# PEEK_IMG
+keymap	j	NULL	# MOVE_DOWN
+keymap	k	NULL	# MOVE_UP
+keymap	l	NULL	# MOVE_RIGHT
+keymap	m	NULL	# MOUSE_TOGGLE
+keymap	n	NULL	# SEARCH_NEXT
+keymap	o	NULL	# OPTIONS
+keymap	q	NULL	# QUIT
+keymap	r	NULL	# VERSION
+keymap	s	NULL	# SELECT_MENU
+keymap	u	NULL	# PEEK_LINK
+keymap	v	NULL	# VIEW
+keymap	w	NULL	# NEXT_WORD
+keymap	z	NULL	# CENTER_V
+keymap	{	NULL	# PREV_TAB
+keymap	|	NULL	# PIPE_BUF
+keymap	}	NULL	# NEXT_TAB
+
+keymap	M-TAB	NULL	# PREV_LINK
+keymap	M-C-j	NULL	# SAVE_LINK
+keymap	M-C-m	NULL	# SAVE_LINK
+
+keymap	M-:	NULL	# MARK_MID
+keymap	M-<	NULL	# BEGIN
+keymap	M->	NULL	# END
+keymap	M-I	NULL	# SAVE_IMAGE
+keymap	M-M	NULL	# EXTERN_LINK
+keymap	M-W	NULL	# DICT_WORD_AT
+keymap	M-a	NULL	# ADD_BOOKMARK
+keymap	M-b	NULL	# BOOKMARK
+keymap	M-c	NULL	# COMMAND
+keymap	M-e	NULL	# EDIT_SCREEN
+keymap	M-g	NULL	# GOTO_LINE
+keymap	M-k	NULL	# DEFINE_KEY
+keymap	M-l	NULL	# LIST_MENU
+keymap	M-m	NULL	# MOVE_LIST_MENU
+keymap	M-n	NULL	# NEXT_MARK
+keymap	M-o	NULL	# SET_OPTION
+keymap	M-p	NULL	# PREV_MARK
+keymap	M-s	NULL	# SAVE
+keymap	M-t	NULL	# TAB_MENU
+keymap	M-u	NULL	# GOTO_RELATIVE
+keymap	M-v	NULL	# PREV_PAGE
+keymap	M-w	NULL	# DICT_WORD
+
+keymap	UP	NULL	# MOVE_UP
+keymap	DOWN	NULL	# MOVE_DOWN
+keymap	RIGHT	NULL	# MOVE_RIGHT
+keymap	LEFT	NULL	# MOVE_LEFT
+
+keymap	M-[E	NULL	# MENU
+keymap	M-[L	NULL	# MENU
+keymap	M-[Z	NULL	# PREV_LINK
+
+keymap	M-[1~	NULL	# BEGIN
+keymap	M-[2~	NULL	# MENU
+keymap	M-[4~	NULL	# END
+keymap	M-[5~	NULL	# PREV_PAGE
+keymap	M-[6~	NULL	# NEXT_PAGE
+keymap	M-[28~	NULL	# MENU
+
+# }}}
+
+# map {{{
+
+# In-page Navigation {{{
+
+keymap	h	MOVE_LEFT1
+keymap	j	MOVE_DOWN1
+keymap	k	MOVE_UP1
+keymap	l	MOVE_RIGHT1
+
+keymap	0	LINE_BEGIN
+keymap	\^	LINE_BEGIN
+keymap	SPCh	LINE_BEGIN
+
+keymap	$	LINE_END
+keymap	SPCl	LINE_END
+
+keymap	w	NEXT_WORD
+keymap	b	PREV_WORD
+
+keymap	TAB	NEXT_LINK
+keymap	M-[Z	PREV_LINK
+
+keymap	J	UP
+keymap	K	DOWN
+
+keymap	SPCSPC	CENTER_V
+
+keymap	gg	BEGIN
+keymap	SPCk	BEGIN
+
+keymap	G	END
+keymap	SPCj	END
+
+# }}}
+
+# Hyperlink Operations {{{
+
+keymap	C-j	GOTO_LINK
+keymap	I	VIEW_IMAGE
+keymap	=	INFO
+keymap	:	MARK_URL
+keymap	o	EXTERN
+
+# }}}
+
+# File/Stream Operations {{{
+
+keymap	C-l	GOTO
+
+# }}}
+
+# Buffer Operations {{{
+
+keymap	B	BACK
+keymap	H	PREV
+keymap	L	NEXT
+keymap	r	RELOAD
+
+# }}}
+
+# Tab Operations {{{
+
+keymap	t	NEW_TAB
+keymap	x	CLOSE_TAB
+keymap	]	NEXT_TAB
+keymap	[	PREV_TAB
+keymap	.	TAB_RIGHT
+keymap	,	TAB_LEFT
+
+# }}}
+
+# Bookmark Management {{{
+
+keymap	C-b	VIEW_BOOKMARK
+keymap	C-d	ADD_BOOKMARK
+
+# }}}
+
+# Searches {{{
+
+keymap	/	WHEREIS
+keymap	?	SEARCH_BACK
+keymap	n	SEARCH_NEXT
+keymap	N	SEARCH_PREV
+
+# }}}
+
+# misc {{{
+
+keymap	C-h	HELP
+keymap	C-o	OPTIONS
+keymap	C-y	HISTORY
+keymap	!	SHELL
+keymap	q	EXIT
+
+# }}}
+
+# }}}
+
+# shell {{{
+
+keymap	ep	SHELL	'mpv --loop=inf $W3M_URL'
+keymap	ey	SHELL	'echo $W3M_URL | clip -i'
+
+# }}}

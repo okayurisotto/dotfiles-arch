@@ -1,0 +1,5 @@
+configuration {
+  modi: "run,emoji:rofimoji";
+  font: "PlemolJP35 Console NF 24";
+  width: 32;
+}

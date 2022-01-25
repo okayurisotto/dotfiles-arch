@@ -1,0 +1,14 @@
+[user]
+	email = 47853651+okayurisotto@users.noreply.github.com
+	name = okayurisotto
+
+[core]
+	autocrlf = false
+	editor = $EDITOR
+	quotePath = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[rebase]
+	autoSquash = true

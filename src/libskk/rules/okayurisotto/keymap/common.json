@@ -1,0 +1,28 @@
+{
+  "define": {
+    "keymap": {
+      "\b": "delete",
+
+      " ":   "next-candidate",
+      "C-n": "next-candidate",
+      "C-p": "previous-candidate",
+      "x":   "purge-candidate",
+
+      "\n": "commit-unhandled",
+
+      "\t": "complete",
+
+      "Escape": "abort",
+      "C-g":    "abort",
+
+      "Henkan":            "set-input-mode-hiragana",
+      "Muhenkan":          "set-input-mode-latin",
+      "Hiragana_Katakana": "abbrev",
+
+      "F7":  "set-input-mode-katakana",
+      "F8":  "set-input-mode-hankaku-katakana",
+      "F9":  "set-input-mode-wide-latin",
+      "F10": "set-input-mode-latin"
+    }
+  }
+}
