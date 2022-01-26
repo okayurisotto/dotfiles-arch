@@ -246,6 +246,6 @@ keymap	q	EXIT
 # shell {{{
 
 keymap	ep	SHELL	'mpv --loop=inf $W3M_URL'
-keymap	ey	SHELL	'echo $W3M_URL | clip -i'
+keymap	ey	SHELL	'echo $W3M_URL | xclip -selection clipboard -i'
 
 # }}}
