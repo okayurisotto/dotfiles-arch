@@ -7,7 +7,7 @@ info_fg = "#000000"
 separator = ""
 
 [icons]
-name = "awesome"
+name = "material-nf"
 
 [[block]]
 block = "music"
@@ -24,7 +24,7 @@ block = "cpu"
 [[block]]
 block = "memory"
 clickable = false
-format_mem = " {mem_used} /{mem_total}"
+format_mem = "{mem_used} / {mem_total:2}"
 
 [[block]]
 block = "disk_space"
@@ -33,7 +33,7 @@ format = "{icon} {used} + {free} = {total}"
 [[block]]
 block = "net"
 device = "wlan0"
-format = " {signal_strength}"
+format = "{signal_strength}"
 
 [[block]]
 block = "sound"
