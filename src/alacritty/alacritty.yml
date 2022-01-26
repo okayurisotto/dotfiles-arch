@@ -18,6 +18,7 @@ colors:
     magenta: '#bc3fbc'
     cyan:    '#11a8cd'
     white:   '#e5e5e5'
+    orange:  '#ffa500' # theme color
   bright:
     black:   '#666666'
     red:     '#f14c4c'

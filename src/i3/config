@@ -20,13 +20,12 @@ for_window [class="Minecraft\* 2.*"] floating enable
 
 # color {{{
 
-# Alacrittyの色と統一
-set $bg          "#1e1e1e"
-set $fg          "#cccccc"
-set $themeBg     "#11a8cd"
-set $themeFg     "#1e1e1e"
 set $accsentBg   "#cd3131"
 set $accsentFg   "#1e1e1e"
+set $bg          "#1e1e1e"
+set $fg          "#cccccc"
+set $themeBg     "#ffa500"
+set $themeFg     "#1e1e1e"
 
 # class                 border     background text     indicator  child_border
 client.focused          $themeBg   $themeBg   $fg      $themeBg   $themeBg

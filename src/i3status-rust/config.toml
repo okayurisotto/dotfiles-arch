@@ -1,7 +1,9 @@
 [theme]
-name = "solarized-dark"
+name = "plain"
 [theme.overrides]
 idle_bg = "#000000"
+info_bg = "#ffa500"
+info_fg = "#000000"
 separator = ""
 
 [icons]
@@ -15,8 +17,6 @@ hide_when_empty = true
 marquee = false
 max_width = 256
 dynamic_width = true
-[block.theme_overrides]
-info_bg = "#11a8cd"
 
 [[block]]
 block = "cpu"
