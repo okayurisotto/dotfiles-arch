@@ -36,19 +36,3 @@ augroup skkeleton-initialize-pre
   autocmd!
   autocmd User skkeleton-initialize-pre call s:skkeleton_init()
 augroup END
-
-call ddc#custom#patch_global('sources', ['around', 'skkeleton'])
-call ddc#custom#patch_global('sourceOptions', {
-  \   '_': {
-  \     'matchers': ['matcher_head'],
-  \     'sorters': ['sorter_rank']
-  \   },
-  \   'skkeleton': {
-  \     'mark': 'skkeleton',
-  \     'matchers': ['skkeleton'],
-  \     'sorters': [],
-  \     'minAutoCompleteLength': 2,
-  \   },
-  \ })
-
-call ddc#enable()
