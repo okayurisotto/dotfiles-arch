@@ -29,7 +29,7 @@ set $accsentBg   "#cd3131"
 set $accsentFg   "#1e1e1e"
 
 # class                 border     background text     indicator  child_border
-client.focused          $themeBg   $themeBg   $fg      $themeBg   $themeBg
+client.focused          $themeBg   $themeBg   $themeFg $themeBg   $themeBg
 client.focused_inactive $bg        $themeBg   $fg      $bg        $bg
 client.unfocused        $bg        $bg        $themeBg $bg        $bg
 client.urgent           $accsentBg $accsentBg $fg      $accsentBg $accsentBg
