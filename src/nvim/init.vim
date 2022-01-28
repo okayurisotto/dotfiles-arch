@@ -20,6 +20,7 @@ syntax enable
 execute 'source ' . s:config_dir . '/skkeleton.vim'
 
 " }}}
+
 lua require('settings')
 lua require('keymaps')
 
