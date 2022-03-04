@@ -23,11 +23,8 @@ alias g='git'
 alias grep='rg'
 alias icat='mpv --pause=yes'
 alias ls='exa'
-alias sq='squoosh-cli --mozjpeg {"quality":75}'
 alias tree='exa --tree'
 alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
 
 # }}}
 
@@ -73,7 +70,7 @@ if [[ -n "$DISPLAY" ]]; then
       message="$sessions\n$create_new_session"
     fi
 
-    id="$(echo "$message" | fzf --layout=reverse --select-1 | sed 's/:.*//')"
+    id="$(echo "$message" | fzf --layout=reverse | sed 's/:.*//')"
 
     if [[ "$id" = "$create_new_session" ]]; then
       tmux new-session && exit

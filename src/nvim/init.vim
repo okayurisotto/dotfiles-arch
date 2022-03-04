@@ -10,14 +10,55 @@ call dein#begin(s:dein_dir)
 call dein#add(s:dein_repo_dir)
 
 call dein#add('vim-denops/denops.vim')
-call dein#add('vim-skk/skkeleton.vim')
+call dein#add('vim-skk/skkeleton')
 
 call dein#end()
 
 filetype plugin indent on
 syntax enable
 
-execute 'source ' . s:config_dir . '/skkeleton.vim'
+" skkeleton {{{
+
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+
+function! s:skkeleton_init() abort
+  call skkeleton#config({
+    \   'eggLikeNewline': v:true,
+    \   'markerHenkan': '-',
+    \   'markerHenkanSelect': '+',
+    \ })
+  call skkeleton#register_kanatable('rom', {
+    \   "z\<Space>": ["\u3000", ''],
+    \   'z-': ['―', ''],
+    \   'z/': ['・', ''],
+    \
+    \   '!': ['！', ''],
+    \   '$': ['＄', ''],
+    \   '&': ['＆', ''],
+    \   '(': ['（', ''],
+    \   ')': ['）', ''],
+    \   '*': ['＊', ''],
+    \   '+': ['＋', ''],
+    \   '/': ['／', ''],
+    \   '<': ['＜', ''],
+    \   '=': ['＝', ''],
+    \   '>': ['＞', ''],
+    \   '@': ['＠', ''],
+    \   '\': ['＼', ''],
+    \   '{': ['｛', ''],
+    \   '|': ['｜', ''],
+    \   '}': ['｝', ''],
+    \   '~': ['〜', ''],
+    \ })
+endfunction
+
+augroup skkeleton-initialize-pre
+  autocmd!
+  autocmd User skkeleton-initialize-pre call s:skkeleton_init()
+augroup END
+
+" }}}
 
 " }}}
 

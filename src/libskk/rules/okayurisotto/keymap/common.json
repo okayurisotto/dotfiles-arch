@@ -6,7 +6,9 @@
       " ":   "next-candidate",
       "C-n": "next-candidate",
       "C-p": "previous-candidate",
-      "x":   "purge-candidate",
+      "C-p": "previous-candidate",
+      "x":   "previous-candidate",
+      "X":   "purge-candidate",
 
       "\n": "commit-unhandled",
 

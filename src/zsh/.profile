@@ -10,4 +10,3 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export EDITOR="$(which nvim)"
 export QT_QPA_PLATFORMTHEME='qt5ct'
 export VOLTA_HOME="$HOME/.volta"
-export WWW_HOME='https://www.google.com/'

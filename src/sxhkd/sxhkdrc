@@ -23,7 +23,7 @@ super + {Left,Down,Up,Right}
 super + t
 	bspc node --state tiled
 
-super + s
+super + w
 	bspc node --state floating
 
 super + f
@@ -36,10 +36,13 @@ super + f
 super + ctrl + {h,j,k,l}
 	bspc node --presel-dir {west,south,north,east}
 
+super + {minus,backslash}
+	bspc node --presel-dir {south,east}
+
 super + ctrl + {1-9}
 	bspc node --presel-ratio 0.{1-9}
 
-super + ctrl + space
+super + ctrl + {space,Escape}
 	bspc query --nodes --desktop | xargs -I id -n 1 bspc node id -p cancel
 
 # }}}
@@ -81,7 +84,10 @@ super + alt + r
 	bspc wm -r
 	pkill -USR1 -x sxhkd
 
+super + Pause
+	betterlockscreen --lock
+
 super + Delete
-	i3lock
+	systemctl suspend
 
 # }}}

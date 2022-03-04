@@ -15,14 +15,11 @@ bspc config gapless_monocle    true
 
 # autorun {{{
 
-feh --bg-max ~/Pictures/wallpapers/wallpaper-01.jpg
-picom -b
-xset r rate 300 30
-
-dunst &
 fcitx5 -rd &
+feh --bg-max ~/.wallpaper &
+picom -b &
 polybar okayurisotto &
 sxhkd &
-xss-lock -- i3lock &
+xset r rate 300 30 &
 
 # }}}
