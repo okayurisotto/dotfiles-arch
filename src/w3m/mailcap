@@ -1,3 +1,0 @@
-image/*;	mpv --loop=inf %s
-audio/*;	mpv --loop=inf %s
-video/*;	mpv --loop=inf %s
