@@ -11,10 +11,9 @@ exec --no-startup-id . ~/.config/i3/autostart.sh
 for_window [class="Alacritty"]               border pixel 1
 for_window [class="firefoxdeveloperedition"] border pixel 1
 
-for_window [class="Minecraft 1.*"]   floating enable
-for_window [class="Minecraft 2.*"]   floating enable
-for_window [class="Minecraft\* 1.*"] floating enable
-for_window [class="Minecraft\* 2.*"] floating enable
+for_window [class="Minecraft 1.*"] floating enable
+for_window [class="Minecraft 2.*"] floating enable
+for_window [class="Minecraft\*"]   floating enable
 
 # }}}
 
