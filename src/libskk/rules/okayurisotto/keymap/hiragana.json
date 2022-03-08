@@ -4,7 +4,9 @@
   ],
   "define": {
     "keymap": {
-      "q": "set-input-mode-katakana"
+      "C-q": "set-input-mode-hankaku-katakana",
+      "L":   "set-input-mode-wide-latin",
+      "q":   "set-input-mode-katakana"
     }
   }
 }
