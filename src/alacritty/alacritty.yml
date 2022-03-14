@@ -34,7 +34,7 @@ colors:
 
 font:
   normal:
-    family: 'PlemolJP35 Console NF'
-  size: 14
+    family: 'PlemolJP Console NF'
+  size: 16
 
 # }}}
