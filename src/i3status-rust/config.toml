@@ -1,25 +1,21 @@
-[theme]
-name = "solarized-dark"
-[theme.overrides]
-idle_bg = "#000000"
-separator = ""
+icons = "material-nf"
 
-[icons]
-name = "material-nf"
+[theme]
+name = "plain"
+[theme.overrides]
+separator = ""
 
 [[block]]
 block = "music"
-buttons = ["prev", "play", "next"]
+dynamic_width = true
 format = "{title}"
 hide_when_empty = true
 marquee = false
 max_width = 256
-dynamic_width = true
-[block.theme_overrides]
-info_bg = "#11a8cd"
 
 [[block]]
 block = "cpu"
+format = "{utilization:2} ({frequency})"
 
 [[block]]
 block = "memory"
