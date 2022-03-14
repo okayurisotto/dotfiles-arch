@@ -1,25 +1,37 @@
+set $font     pango:PlemolJP Console NF 12
+set $gaps     16
+
+set $mod    Mod4
+set $left     h
+set $down     j
+set $up       k
+set $right    l
+
+set $launcher rofi -show run
+set $locker   i3lock
+set $terminal alacritty
+
+# exec {{{
+
+exec --no-startup-id fcitx5 -rd
+exec --no-startup-id feh --bg-max ~/.wallpaper
+exec --no-startup-id picom -b
+exec --no-startup-id xset r rate 300 30
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# }}}
+
 # system {{{
 
-font pango:PlemolJP35 Console NF 24px
-
-gaps inner 16
-
+floating_modifier $mod
+font $font
+gaps inner $gaps
 title_align center
-
-exec --no-startup-id . ~/.config/i3/autostart.sh
-
-for_window [class="Alacritty"]               border pixel 1
-for_window [class="firefoxdeveloperedition"] border pixel 1
-
-for_window [class="Minecraft 1.*"] floating enable
-for_window [class="Minecraft 2.*"] floating enable
-for_window [class="Minecraft\*"]   floating enable
 
 # }}}
 
 # color {{{
 
-# Alacrittyの色と統一
 set $bg          "#1e1e1e"
 set $fg          "#cccccc"
 set $themeBg     "#11a8cd"
@@ -41,18 +53,18 @@ client.background       $bg
 # status {{{
 
 bar {
-  font pango:PlemolJP35 Console NF 24px
-  position top
-  status_command i3status-rs $XDG_CONFIG_HOME/i3status-rust/config.toml
   colors {
-    separator  $bg
     background "#000000"
+    separator  $bg
     statusline $bg
-    focused_workspace  $themeBg   $themeBg $themeFg
     active_workspace   $themeBg   $bg      $fg
+    focused_workspace  $themeBg   $themeBg $themeFg
     inactive_workspace $themeBg   $bg      $fg
     urgent_workspace   $accsentBg $bg      $fg
   }
+  font pango:PlemolJP35 Console NF 24px
+  position top
+  status_command i3status-rs
   strip_workspace_numbers yes
 }
 
@@ -64,27 +76,25 @@ bar {
 
 set $mod Mod4
 
-bindsym $mod+space exec --no-startup-id rofi -show
+bindsym $mod+Delete exec --no-startup-id systemctl suspend
+bindsym $mod+Pause  exec --no-startup-id $locker
+bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+space  exec --no-startup-id $launcher
 
-bindsym $mod+Pause exec i3lock
-bindsym $mod+Delete exec systemctl suspend
+bindsym $mod+$down  focus down
+bindsym $mod+$left  focus left
+bindsym $mod+$right focus right
+bindsym $mod+$up    focus up
+
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$up    move up
 
 bindsym $mod+Escape kill
 
 bindsym $mod+F1 floating toggle
 bindsym $mod+F2 focus mode_toggle
-
-bindsym $mod+Return exec --no-startup-id alacritty
-
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
 
 bindsym $mod+backslash split h
 bindsym $mod+minus     split v
@@ -95,16 +105,17 @@ bindsym $mod+f fullscreen toggle
 
 # resize {{{
 
-bindsym $mod+r mode resize
 mode resize {
   bindsym h resize grow   width  1 px or 1 ppt
   bindsym j resize shrink height 1 px or 1 ppt
   bindsym k resize grow   height 1 px or 1 ppt
   bindsym l resize shrink width  1 px or 1 ppt
 
-  bindsym Return mode default
+  bindsym $mod+r mode default
   bindsym Escape mode default
+  bindsym Return mode default
 }
+bindsym $mod+r mode resize
 
 # }}}
 
