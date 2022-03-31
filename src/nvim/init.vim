@@ -30,7 +30,7 @@ function! s:skkeleton_init() abort
     \ })
   call skkeleton#register_kanatable('rom', {
     \   "z\<Space>": ["\u3000", ''],
-    \   'z-': ['―', ''],
+    \   'z-': ['—', ''],
     \   'z/': ['・', ''],
     \
     \   '!': ['！', ''],
