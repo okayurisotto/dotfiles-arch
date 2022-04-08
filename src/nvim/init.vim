@@ -25,6 +25,8 @@ cmap <C-j> <Plug>(skkeleton-toggle)
 function! s:skkeleton_init() abort
   call skkeleton#config({
     \   'eggLikeNewline': v:true,
+    \   'globalJisyo': "~/.skk-dict.txt",
+    \   'globalJisyoEncoding': "UTF-8",
     \   'markerHenkan': '-',
     \   'markerHenkanSelect': '+',
     \ })
