@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.opt.ambiwidth = 'single'
 vim.opt.breakindent = true
-vim.opt.clipboard:prepend({ 'unnamedplus' })
+vim.opt.clipboard:append({ 'unnamedplus' })
 vim.opt.completeopt:append('menuone')
 vim.opt.confirm = true
 vim.opt.cursorline = true
@@ -17,7 +17,6 @@ vim.opt.scrolloff = 1
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.showbreak = '+ '
-vim.opt.showmatch = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.softtabstop = 2

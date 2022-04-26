@@ -1,14 +1,16 @@
-[user]
-	email = 47853651+okayurisotto@users.noreply.github.com
-	name = okayurisotto
-
 [core]
-	autocrlf = false
 	editor = $EDITOR
+	pager = /usr/bin/bat
 	quotePath = false
 [init]
 	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true ff = true
 [rebase]
 	autoSquash = true
+	autoStash = true
+[status]
+	short = true
+[user]
+	email = 47853651+okayurisotto@users.noreply.github.com
+	name = okayurisotto

@@ -1,44 +1,64 @@
-# system {{{
+#  _     _     _     _     _     _     _     _     _     _     _
+# _)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`
 
-typeset -U PATH
+# XDG Base Directory  ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# for applications    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export QT_QPA_PLATFORMTHEME='qt5ct'
+
+# PATH    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
+prepend_path () {
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="$1${PATH:+:$PATH}"
+  esac
+}
+
+prepend_path "$HOME/.bin"
+prepend_path "$HOME/.deno/bin"
+prepend_path "$PNPM_HOME"
+
+export PATH
+
+# Zsh settings    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 
-setopt hist_ignore_all_dups
-setopt hist_ignore_dups
-setopt share_history
-
 bindkey -e
 
-eval "$(starship init zsh)" &> /dev/null
+typeset -U PATH
 
-# }}}
+eval "$(starship init zsh)"
 
-# alias {{{
+# Alias   ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
 alias clip='xclip -selection clipboard'
-alias fzf="fzf --color='prompt:cyan,pointer:cyan,marker:cyan,gutter:-1'"
 alias g='git'
 alias grep='rg'
 alias icat='mpv --pause=yes'
-alias ls='exa'
+alias ls='exa --sort=Name'
 alias tree='exa --tree'
 alias v='nvim'
 
-# }}}
-
-# SSH {{{
-# https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows
+# SSH ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
 env="$HOME/.ssh/agent.env"
 
 [[ -f "$env" ]] && . "$env" &> /dev/null
 
 agent_run_state="$(ssh-add -l &> /dev/null; echo $?)"
-# 0: agent running with key
-# 1: agent running without key
-# 2: agent not running
+# 0: agent is     running with    key!
+# 1: agent is     running without key.
+# 2: agent is not running            .
 
 if [[ ! "$SSH_AUTH_SOCK" ]] || [[ "$agent_run_state" = '2' ]]; then
   umask 077
@@ -53,33 +73,11 @@ fi
 unset agent_run_state
 unset env
 
-# }}}
+# Misc    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
-# tmux {{{
-# https://qiita.com/ssh0/items/a9956a74bff8254a606a
+export EDITOR="$(which nvim)"
+export FZF_DEFAULT_OPTS="$(cat $XDG_CONFIG_HOME/fzf/config)"
 
-if [[ -n "$DISPLAY" ]]; then
-  if [[ -z "$TMUX" ]]; then
-    sessions="$(tmux list-sessions 2> /dev/null)"
+. /usr/share/nvm/init-nvm.sh
 
-    create_new_session='Create new session'
-
-    if [[ -z $sessions ]]; then
-      message="$create_new_session"
-    else
-      message="$sessions\n$create_new_session"
-    fi
-
-    id="$(echo "$message" | fzf --layout=reverse | sed 's/:.*//')"
-
-    if [[ "$id" = "$create_new_session" ]]; then
-      tmux new-session && exit
-    elif [[ -n "$id" ]]; then
-      tmux attach-session -t "$id" && exit
-    else
-      : # Start terminal normally
-    fi
-  fi
-fi
-
-# }}}
+if [[ -n "$DISPLAY" ]] && [[ -z "$TMUX" ]]; then tmux; fi

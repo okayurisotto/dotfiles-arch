@@ -1,11 +1,11 @@
-set $font     pango:PlemolJP Console NF 12
-set $gaps     16
+set $font  pango:PlemolJP Console NF 12
+set $gaps  16
 
-set $mod    Mod4
-set $left     h
-set $down     j
-set $up       k
-set $right    l
+set $mod   Mod4
+set $left  h
+set $down  j
+set $up    k
+set $right l
 
 set $launcher rofi -show run
 set $locker   i3lock
@@ -23,6 +23,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # system {{{
 
+default_border normal 1
 floating_modifier $mod
 font $font
 gaps inner $gaps
