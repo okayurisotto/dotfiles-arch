@@ -1,18 +1,21 @@
-#  _     _     _     _     _     _     _     _     _     _     _
-# _)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`'.__)`
-
 # XDG Base Directory  ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
+
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # for applications    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
+
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export QT_QPA_PLATFORMTHEME='qt5ct'
 
+export FZF_DEFAULT_COMMAND="$(which fd) --no-follow"
+export FZF_DEFAULT_OPTS="$(cat $XDG_CONFIG_HOME/fzf/config)"
+
 # PATH    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
+
 prepend_path () {
   case ":$PATH:" in
     *:"$1":*)
@@ -23,6 +26,7 @@ prepend_path () {
 }
 
 prepend_path "$HOME/.bin"
+prepend_path "$HOME/.local/bin"
 prepend_path "$HOME/.deno/bin"
 prepend_path "$PNPM_HOME"
 
@@ -46,6 +50,7 @@ alias g='git'
 alias grep='rg'
 alias icat='mpv --pause=yes'
 alias ls='exa --sort=Name'
+alias t='tmux'
 alias tree='exa --tree'
 alias v='nvim'
 
@@ -76,8 +81,5 @@ unset env
 # Misc    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
 export EDITOR="$(which nvim)"
-export FZF_DEFAULT_OPTS="$(cat $XDG_CONFIG_HOME/fzf/config)"
 
 . /usr/share/nvm/init-nvm.sh
-
-if [[ -n "$DISPLAY" ]] && [[ -z "$TMUX" ]]; then tmux; fi
