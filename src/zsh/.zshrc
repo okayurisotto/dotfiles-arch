@@ -7,7 +7,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # for applications    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
-export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export QT_QPA_PLATFORMTHEME='qt5ct'
 
@@ -25,10 +24,12 @@ prepend_path () {
   esac
 }
 
+prepend_path "$HOME/.asdf/shims"
 prepend_path "$HOME/.bin"
-prepend_path "$HOME/.local/bin"
 prepend_path "$HOME/.deno/bin"
+prepend_path "$HOME/.local/bin"
 prepend_path "$PNPM_HOME"
+prepend_path "/opt/asdf-vm/bin"
 
 export PATH
 
@@ -81,5 +82,3 @@ unset env
 # Misc    ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><> ><>
 
 export EDITOR="$(which nvim)"
-
-. /usr/share/nvm/init-nvm.sh
